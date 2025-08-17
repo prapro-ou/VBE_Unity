@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a523ced2e5274d4280317609ccc4f98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitMaxHealth: 100
+  databaseID: 0
   healthTracker: {fileID: 1073705808509881113}
   isBuilding: 0
 --- !u!114 &4833997468671223964
@@ -243,11 +243,6 @@ MonoBehaviour:
   idleStateMaterial: {fileID: 2100000, guid: aa6386969132b204aacbe0a384bc1845, type: 2}
   attackStateMaterial: {fileID: 2100000, guid: 1150f9cdbc352614eb438a9ebed8c32a, type: 2}
   followStateMaterial: {fileID: 2100000, guid: 0dc413a74be1937429cc7b1c55e4b9b2, type: 2}
-  unitDamage: 10
-  isPlayer: 1
-  projectilePrefab: {fileID: 3135320911115537180, guid: 702ee443cbd14304e8735c229b907c56, type: 3}
-  isRanged: 1
-  attackRange: 5.81
 --- !u!120 &4971697949389347736
 LineRenderer:
   serializedVersion: 2
