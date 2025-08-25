@@ -1,6 +1,7 @@
-// code/Unit.cs
+// Unit.cs (全体を書き換え)
 
 using UnityEngine;
+using UnityEngine.AI; // NavMeshAgentを使用するために必要
 
 public class Unit : MonoBehaviour
 {
@@ -26,6 +27,30 @@ public class Unit : MonoBehaviour
 
         // 体力をデータベースの値で初期化
         currentHealth = unitData.MaxHealth;
+        
+        // ★★ここから修正・追加★★
+        // isBuildingがfalse（つまりユニット）の場合のみ処理を行う
+        if (!isBuilding)
+        {
+            // NavMeshAgentにデータベースの値を設定
+            NavMeshAgent agent = GetComponent<NavMeshAgent>();
+            if (agent != null)
+            {
+                agent.speed = unitData.MoveSpeed;
+            }
+            else
+            {
+                Debug.LogWarning($"{gameObject.name} にNavMeshAgentコンポーネントが見つかりません。", this);
+            }
+            
+            // ★★重要：生成時にUnitMovementを無効化する★★
+            UnitMovement movement = GetComponent<UnitMovement>();
+            if (movement != null)
+            {
+                movement.enabled = false;
+            }
+        }
+        // ★★ここまで修正・追加★★
     }
 
     void Start()
